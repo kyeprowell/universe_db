@@ -49,7 +49,10 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.galaxy (
     galaxy_id integer NOT NULL,
-    name character varying(30)
+    name character varying(30) NOT NULL,
+    type character varying(30),
+    size_in_ly integer,
+    distance_in_ly integer
 );
 
 
@@ -84,7 +87,7 @@ ALTER SEQUENCE public.galaxy_galaxy_id_seq OWNED BY public.galaxy.galaxy_id;
 CREATE TABLE public.moon (
     moon_id integer NOT NULL,
     planet_id integer,
-    name character varying(30)
+    name character varying(30) NOT NULL
 );
 
 
@@ -119,7 +122,7 @@ ALTER SEQUENCE public.moon_moon_id_seq OWNED BY public.moon.moon_id;
 CREATE TABLE public.planet (
     planet_id integer NOT NULL,
     star_id integer,
-    name character varying(30)
+    name character varying(30) NOT NULL
 );
 
 
@@ -154,7 +157,10 @@ ALTER SEQUENCE public.planet_planet_id_seq OWNED BY public.planet.planet_id;
 CREATE TABLE public.star (
     star_id integer NOT NULL,
     galaxy_id integer,
-    name character varying(30)
+    name character varying(30) NOT NULL,
+    type character varying(30),
+    brightness numeric(5,2),
+    distance_in_ly integer
 );
 
 
